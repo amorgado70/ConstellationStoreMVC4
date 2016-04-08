@@ -132,9 +132,7 @@ C:\Users\amorgado\Documents\GitHub\ConstellationStoreMVC4\ConstellationStoreMVC4
 C:\Users\amorgado\Documents\GitHub\ConstellationStoreMVC4\ConstellationStoreMVC4\ConstellationStore.WebUI\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\amorgado\Documents\GitHub\ConstellationStoreMVC4\ConstellationStoreMVC4\ConstellationStore.WebUI\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
 C:\Users\amorgado\Documents\GitHub\ConstellationStoreMVC4\ConstellationStoreMVC4\ConstellationStore.WebUI\bin\Microsoft.Web.WebPages.OAuth.dll
-C:\Users\amorgado\Documents\GitHub\ConstellationStoreMVC4\ConstellationStoreMVC4\ConstellationStore.WebUI\bin\MySql.Data.dll
 C:\Users\amorgado\Documents\GitHub\ConstellationStoreMVC4\ConstellationStoreMVC4\ConstellationStore.WebUI\bin\MySql.Data.Entity.dll
-C:\Users\amorgado\Documents\GitHub\ConstellationStoreMVC4\ConstellationStoreMVC4\ConstellationStore.WebUI\bin\MySql.Web.dll
 C:\Users\amorgado\Documents\GitHub\ConstellationStoreMVC4\ConstellationStoreMVC4\ConstellationStore.WebUI\bin\Newtonsoft.Json.dll
 C:\Users\amorgado\Documents\GitHub\ConstellationStoreMVC4\ConstellationStoreMVC4\ConstellationStore.WebUI\bin\System.Net.Http.dll
 C:\Users\amorgado\Documents\GitHub\ConstellationStoreMVC4\ConstellationStoreMVC4\ConstellationStore.WebUI\bin\System.Net.Http.Formatting.dll

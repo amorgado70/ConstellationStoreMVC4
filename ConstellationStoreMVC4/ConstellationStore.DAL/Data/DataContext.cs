@@ -3,11 +3,11 @@ using System.Data.Entity;
 
 namespace ConstellationStore.Contracts.Data
 {
-    public class DataContext:DbContext
+    public class DataContext : DbContext
     {
-        public DataContext() : base("constellationDbContext")
+        public DataContext() : base("constellationEntities")
         {
-            //Configuration.LazyLoadingEnabled = true;
+            Configuration.LazyLoadingEnabled = true;
         }
 
         public DbSet<BasketItem> BasketItems { get; set; }
