@@ -1,0 +1,350 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="constellationModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityType Name="BasketItems">
+          <Key>
+            <PropertyRef Name="BasketItemID" />
+          </Key>
+          <Property Name="BasketItemID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BasketID" Type="int" Nullable="false" />
+          <Property Name="ProductID" Type="int" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Baskets">
+          <Key>
+            <PropertyRef Name="BasketID" />
+          </Key>
+          <Property Name="BasketID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderDate" Type="datetime" Nullable="false" />
+          <Property Name="BasketGuid" Type="varchar" MaxLength="36" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Customers">
+          <Key>
+            <PropertyRef Name="CustomerId" />
+          </Key>
+          <Property Name="CustomerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustomerName" Type="longtext" />
+          <Property Name="PictureUrl" Type="longtext" />
+          <Property Name="Address1" Type="longtext" />
+          <Property Name="Address2" Type="longtext" />
+          <Property Name="Town" Type="longtext" />
+          <Property Name="PostalCode" Type="longtext" />
+          <Property Name="HomePhone" Type="longtext" />
+          <Property Name="BusinessPhone" Type="longtext" />
+          <Property Name="EmailAddress" Type="longtext" />
+        </EntityType>
+        <EntityType Name="OrderItems">
+          <Key>
+            <PropertyRef Name="OrderItemId" />
+          </Key>
+          <Property Name="OrderItemId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductId" Type="int" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="Price" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Order_OrderId" Type="int" />
+        </EntityType>
+        <EntityType Name="Orders">
+          <Key>
+            <PropertyRef Name="OrderId" />
+          </Key>
+          <Property Name="OrderId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderDate" Type="datetime" Nullable="false" />
+          <Property Name="CustomerId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Products">
+          <Key>
+            <PropertyRef Name="ProductId" />
+          </Key>
+          <Property Name="ProductId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="longtext" />
+          <Property Name="ImageUrl" Type="longtext" />
+          <Property Name="Price" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="CostPrice" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_dbo_BasketItems_dbo_Basket_BasketID">
+          <End Role="Baskets" Type="Self.Baskets" Multiplicity="1" />
+          <End Role="BasketItems" Type="Self.BasketItems" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Baskets">
+              <PropertyRef Name="BasketID" />
+            </Principal>
+            <Dependent Role="BasketItems">
+              <PropertyRef Name="BasketID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_BasketItems_dbo_Products_ProductID">
+          <End Role="Products" Type="Self.Products" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="BasketItems" Type="Self.BasketItems" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="ProductId" />
+            </Principal>
+            <Dependent Role="BasketItems">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_OrderItems_dbo_Orders_Order_OrderId">
+          <End Role="Orders" Type="Self.Orders" Multiplicity="0..1" />
+          <End Role="OrderItems" Type="Self.OrderItems" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="OrderId" />
+            </Principal>
+            <Dependent Role="OrderItems">
+              <PropertyRef Name="Order_OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="constellationModelStoreContainer">
+          <EntitySet Name="BasketItems" EntityType="Self.BasketItems" Schema="constellation" store:Type="Tables" />
+          <EntitySet Name="Baskets" EntityType="Self.Baskets" Schema="constellation" store:Type="Tables" />
+          <EntitySet Name="Customers" EntityType="Self.Customers" Schema="constellation" store:Type="Tables" />
+          <EntitySet Name="OrderItems" EntityType="Self.OrderItems" Schema="constellation" store:Type="Tables" />
+          <EntitySet Name="Orders" EntityType="Self.Orders" Schema="constellation" store:Type="Tables" />
+          <EntitySet Name="Products" EntityType="Self.Products" Schema="constellation" store:Type="Tables" />
+          <AssociationSet Name="FK_dbo_BasketItems_dbo_Basket_BasketID" Association="Self.FK_dbo_BasketItems_dbo_Basket_BasketID">
+            <End Role="Baskets" EntitySet="Baskets" />
+            <End Role="BasketItems" EntitySet="BasketItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_BasketItems_dbo_Products_ProductID" Association="Self.FK_dbo_BasketItems_dbo_Products_ProductID">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="BasketItems" EntitySet="BasketItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_OrderItems_dbo_Orders_Order_OrderId" Association="Self.FK_dbo_OrderItems_dbo_Orders_Order_OrderId">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="OrderItems" EntitySet="OrderItems" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="constellationModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityType Name="BasketItem">
+          <Key>
+            <PropertyRef Name="BasketItemID" />
+          </Key>
+          <Property Name="BasketItemID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BasketID" Type="Int32" Nullable="false" />
+          <Property Name="ProductID" Type="Int32" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Basket" Relationship="Self.FK_dbo_BasketItems_dbo_Basket_BasketID" FromRole="BasketItems" ToRole="Baskets" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_dbo_BasketItems_dbo_Products_ProductID" FromRole="BasketItems" ToRole="Products" />
+        </EntityType>
+        <EntityType Name="Basket">
+          <Key>
+            <PropertyRef Name="BasketID" />
+          </Key>
+          <Property Name="BasketID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderDate" Type="DateTime" Nullable="false" />
+          <Property Name="BasketGuid" Type="String" Nullable="false" />
+          <NavigationProperty Name="BasketItems" Relationship="Self.FK_dbo_BasketItems_dbo_Basket_BasketID" FromRole="Baskets" ToRole="BasketItems" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="CustomerId" />
+          </Key>
+          <Property Name="CustomerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerName" Type="String" />
+          <Property Name="PictureUrl" Type="String" />
+          <Property Name="Address1" Type="String" />
+          <Property Name="Address2" Type="String" />
+          <Property Name="Town" Type="String" />
+          <Property Name="PostalCode" Type="String" />
+          <Property Name="HomePhone" Type="String" />
+          <Property Name="BusinessPhone" Type="String" />
+          <Property Name="EmailAddress" Type="String" />
+        </EntityType>
+        <EntityType Name="OrderItem">
+          <Key>
+            <PropertyRef Name="OrderItemId" />
+          </Key>
+          <Property Name="OrderItemId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductId" Type="Int32" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="Price" Type="Decimal" Nullable="false" />
+          <Property Name="Order_OrderId" Type="Int32" />
+          <NavigationProperty Name="Order" Relationship="Self.FK_dbo_OrderItems_dbo_Orders_Order_OrderId" FromRole="OrderItems" ToRole="Orders" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="OrderId" />
+          </Key>
+          <Property Name="OrderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderDate" Type="DateTime" Nullable="false" />
+          <Property Name="CustomerId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="OrderItems" Relationship="Self.FK_dbo_OrderItems_dbo_Orders_Order_OrderId" FromRole="Orders" ToRole="OrderItems" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ProductId" />
+          </Key>
+          <Property Name="ProductId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" />
+          <Property Name="ImageUrl" Type="String" />
+          <Property Name="Price" Type="Decimal" Nullable="false" />
+          <Property Name="CostPrice" Type="Decimal" Nullable="false" />
+          <NavigationProperty Name="BasketItems" Relationship="Self.FK_dbo_BasketItems_dbo_Products_ProductID" FromRole="Products" ToRole="BasketItems" />
+        </EntityType>
+        <Association Name="FK_dbo_BasketItems_dbo_Basket_BasketID">
+          <End Role="Baskets" Type="Self.Basket" Multiplicity="1" />
+          <End Role="BasketItems" Type="Self.BasketItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Baskets">
+              <PropertyRef Name="BasketID" />
+            </Principal>
+            <Dependent Role="BasketItems">
+              <PropertyRef Name="BasketID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_BasketItems_dbo_Products_ProductID">
+          <End Role="Products" Type="Self.Product" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="BasketItems" Type="Self.BasketItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="ProductId" />
+            </Principal>
+            <Dependent Role="BasketItems">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_OrderItems_dbo_Orders_Order_OrderId">
+          <End Role="Orders" Type="Self.Order" Multiplicity="0..1" />
+          <End Role="OrderItems" Type="Self.OrderItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="OrderId" />
+            </Principal>
+            <Dependent Role="OrderItems">
+              <PropertyRef Name="Order_OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="constellationEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BasketItems" EntityType="Self.BasketItem" />
+          <EntitySet Name="Baskets" EntityType="Self.Basket" />
+          <EntitySet Name="Customers" EntityType="Self.Customer" />
+          <EntitySet Name="OrderItems" EntityType="Self.OrderItem" />
+          <EntitySet Name="Orders" EntityType="Self.Order" />
+          <EntitySet Name="Products" EntityType="Self.Product" />
+          <AssociationSet Name="FK_dbo_BasketItems_dbo_Basket_BasketID" Association="Self.FK_dbo_BasketItems_dbo_Basket_BasketID">
+            <End Role="Baskets" EntitySet="Baskets" />
+            <End Role="BasketItems" EntitySet="BasketItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_BasketItems_dbo_Products_ProductID" Association="Self.FK_dbo_BasketItems_dbo_Products_ProductID">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="BasketItems" EntitySet="BasketItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_OrderItems_dbo_Orders_Order_OrderId" Association="Self.FK_dbo_OrderItems_dbo_Orders_Order_OrderId">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="OrderItems" EntitySet="OrderItems" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="constellationModelStoreContainer" CdmEntityContainer="constellationEntities1">
+          <EntitySetMapping Name="BasketItems">
+            <EntityTypeMapping TypeName="constellationModel.BasketItem">
+              <MappingFragment StoreEntitySet="BasketItems">
+                <ScalarProperty Name="BasketItemID" ColumnName="BasketItemID" />
+                <ScalarProperty Name="BasketID" ColumnName="BasketID" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Baskets">
+            <EntityTypeMapping TypeName="constellationModel.Basket">
+              <MappingFragment StoreEntitySet="Baskets">
+                <ScalarProperty Name="BasketID" ColumnName="BasketID" />
+                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+                <ScalarProperty Name="BasketGuid" ColumnName="BasketGuid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="constellationModel.Customer">
+              <MappingFragment StoreEntitySet="Customers">
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="PictureUrl" ColumnName="PictureUrl" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="Town" ColumnName="Town" />
+                <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+                <ScalarProperty Name="HomePhone" ColumnName="HomePhone" />
+                <ScalarProperty Name="BusinessPhone" ColumnName="BusinessPhone" />
+                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderItems">
+            <EntityTypeMapping TypeName="constellationModel.OrderItem">
+              <MappingFragment StoreEntitySet="OrderItems">
+                <ScalarProperty Name="OrderItemId" ColumnName="OrderItemId" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Order_OrderId" ColumnName="Order_OrderId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="constellationModel.Order">
+              <MappingFragment StoreEntitySet="Orders">
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="constellationModel.Product">
+              <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="CostPrice" ColumnName="CostPrice" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
