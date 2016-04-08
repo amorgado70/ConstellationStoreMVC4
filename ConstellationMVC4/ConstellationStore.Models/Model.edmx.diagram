@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="27a062d1dbf64f36b2f1be4100f66e6e" Name="Diagram1">
+      <Diagram DiagramId="3b904685359045a89fe6fdfa51bb29be" Name="Diagram1">
         <EntityTypeShape EntityType="constellationModel.BasketItem" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
         <EntityTypeShape EntityType="constellationModel.Basket" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
         <EntityTypeShape EntityType="constellationModel.Customer" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />

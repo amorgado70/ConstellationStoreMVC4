@@ -14,7 +14,7 @@
       <PropertyRef Name="BasketID" />
     </Key>
     <Property Name="BasketID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="OrderDate" Type="datetime" Nullable="false" />
+    <Property Name="OrderDate" Type="date" Nullable="false" />
     <Property Name="BasketGuid" Type="varchar" MaxLength="36" Nullable="false" />
   </EntityType>
   <EntityType Name="Customers">
@@ -47,7 +47,7 @@
       <PropertyRef Name="OrderId" />
     </Key>
     <Property Name="OrderId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="OrderDate" Type="datetime" Nullable="false" />
+    <Property Name="OrderDate" Type="date" Nullable="false" />
     <Property Name="CustomerId" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Products">

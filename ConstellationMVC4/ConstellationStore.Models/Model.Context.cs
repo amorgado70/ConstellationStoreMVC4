@@ -13,10 +13,10 @@ namespace ConstellationStore.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class constellationEntities1 : DbContext
+    public partial class constellationEntities : DbContext
     {
-        public constellationEntities1()
-            : base("name=constellationEntities1")
+        public constellationEntities()
+            : base("name=constellationEntities")
         {
         }
     

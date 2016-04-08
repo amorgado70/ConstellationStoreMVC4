@@ -19,7 +19,7 @@
             <PropertyRef Name="BasketID" />
           </Key>
           <Property Name="BasketID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="OrderDate" Type="datetime" Nullable="false" />
+          <Property Name="OrderDate" Type="date" Nullable="false" />
           <Property Name="BasketGuid" Type="varchar" MaxLength="36" Nullable="false" />
         </EntityType>
         <EntityType Name="Customers">
@@ -52,7 +52,7 @@
             <PropertyRef Name="OrderId" />
           </Key>
           <Property Name="OrderId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="OrderDate" Type="datetime" Nullable="false" />
+          <Property Name="OrderDate" Type="date" Nullable="false" />
           <Property Name="CustomerId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Products">
@@ -232,7 +232,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="constellationEntities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="constellationEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="BasketItems" EntityType="Self.BasketItem" />
           <EntitySet Name="Baskets" EntityType="Self.Basket" />
           <EntitySet Name="Customers" EntityType="Self.Customer" />
@@ -257,7 +257,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="constellationModelStoreContainer" CdmEntityContainer="constellationEntities1">
+        <EntityContainerMapping StorageEntityContainer="constellationModelStoreContainer" CdmEntityContainer="constellationEntities">
           <EntitySetMapping Name="BasketItems">
             <EntityTypeMapping TypeName="constellationModel.BasketItem">
               <MappingFragment StoreEntitySet="BasketItems">
