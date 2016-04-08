@@ -220,3 +220,4 @@ C:\Users\amorgado\Documents\GitHub\ConstellationStoreMVC4\ConstellationStoreMVC4
 C:\Users\amorgado\Documents\GitHub\ConstellationStoreMVC4\ConstellationStoreMVC4\ConstellationStore.WebUI\obj\Debug\ConstellationStore.WebUI.csprojResolveAssemblyReference.cache
 C:\Users\amorgado\Documents\GitHub\ConstellationStoreMVC4\ConstellationStoreMVC4\ConstellationStore.WebUI\obj\Debug\IPMRVPark.WebUI.dll
 C:\Users\amorgado\Documents\GitHub\ConstellationStoreMVC4\ConstellationStoreMVC4\ConstellationStore.WebUI\obj\Debug\IPMRVPark.WebUI.pdb
+C:\Users\amorgado\Documents\GitHub\ConstellationStoreMVC4\ConstellationStoreMVC4\ConstellationStore.WebUI\bin\System.Linq.Dynamic.dll

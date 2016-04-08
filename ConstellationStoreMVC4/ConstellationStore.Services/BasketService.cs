@@ -31,7 +31,7 @@ namespace ConstellationStore.Services
             //now create a new basket and set the creation date.
             Basket basket = new Basket();
             basket.OrderDate = DateTime.Now;
-            basket.BasketID = Guid.NewGuid();
+            basket.BasketID = Guid.NewGuid().ToString();
 
             //add and persist in the dabase.
             baskets.Insert(basket);
@@ -73,12 +73,14 @@ namespace ConstellationStore.Services
         {
             HttpCookie cookie = httpContext.Request.Cookies.Get(BasketSessionName);
             Basket basket;
-            Guid basketId;
+            String basketId;
+            basketId = cookie.Value;
             if (cookie != null)//checks if cookie is null
             {
-                if (Guid.TryParse(cookie.Value, out basketId))
+                if (basketId.Length == 36)//(Guid.TryParse(cookie.Value, out basketId))
                 {
-                    basket = baskets.GetById(basketId);
+                    //basket = baskets.GetById(basketId);
+                    basket = baskets.GetByKey("BasketID",basketId);
                     if (basket == null)//basket not found in database
                         basket = createNewBasket(httpContext);
                 }

@@ -382,7 +382,7 @@
     <Content Include="Views\Admin\ProductIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
+    <Folder Include="App_Start\App_Data\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

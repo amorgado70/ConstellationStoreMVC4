@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
+using System.Linq.Dynamic;
 
 namespace ConstellationStore.Contracts.Repositories
 {
@@ -23,6 +24,15 @@ namespace ConstellationStore.Contracts.Repositories
         {
             return dbSet.Find(id);
         }
+
+        public virtual TEntity GetByKey(string keyName, object keyValue)
+        {
+            string whereCondition = keyName + " == " + keyValue;
+            var temp = dbSet;
+
+            return dbSet.Where(whereCondition).FirstOrDefault();
+        }
+
         public virtual IQueryable<TEntity> GetQueryable()
         {
             return dbSet.AsQueryable<TEntity>();

@@ -20,3 +20,5 @@ C:\Users\amorgado\Documents\GitHub\ConstellationStoreMVC4\ConstellationStoreMVC4
 C:\Users\amorgado\Documents\GitHub\ConstellationStoreMVC4\ConstellationStoreMVC4\ConstellationStore.Services\obj\Debug\ConstellationStore.Services.csprojResolveAssemblyReference.cache
 C:\Users\amorgado\Documents\GitHub\ConstellationStoreMVC4\ConstellationStoreMVC4\ConstellationStore.Services\obj\Debug\ConstellationStore.Services.dll
 C:\Users\amorgado\Documents\GitHub\ConstellationStoreMVC4\ConstellationStoreMVC4\ConstellationStore.Services\obj\Debug\ConstellationStore.Services.pdb
+C:\Users\amorgado\Documents\GitHub\ConstellationStoreMVC4\ConstellationStoreMVC4\ConstellationStore.Services\bin\Debug\EntityFramework.dll
+C:\Users\amorgado\Documents\GitHub\ConstellationStoreMVC4\ConstellationStoreMVC4\ConstellationStore.Services\bin\Debug\EntityFramework.xml
