@@ -1,0 +1,90 @@
+﻿@model IEnumerable<ConstellationStore.Models.BasketItem>
+
+@{
+    ViewBag.Title = "Basket Summary";
+}
+
+<h2>Basket Summary</h2>
+
+<div class="container">
+    <div class="row margin-top-10">
+        <div class="col-md-6 col-md-push-6 col-xs-12">
+            <a href="@Url.Action("BasketItemAdd", "Products")" class="btn btn-primary pull-right margin-top-10">
+                Select More Products &nbsp;
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+            </a>
+        </div>
+    </div>
+</div>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Product.ImageUrl)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BasketID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Product.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Product.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Quantity)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td class="col-xs-2">
+                <div >
+                    <img class="img-responsive img-rounded thumb-img" src="@Html.DisplayFor(modelItem => item.Product.ImageUrl )" alt="@item.Product.Description">
+                </div>
+            </td>
+            <td class="col-xs-2">
+                @Html.DisplayFor(modelItem => item.BasketID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td class="col-xs-4">
+                <div class="col-md-6 col-xs-12">
+                    <a href="@Url.Action("BasketItemDetails", "Products", new { id = item.ProductID })" class="btn btn-primary col-xs-12">
+                        Details
+                        <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+                    </a>
+                </div>
+                <div class="col-md-6 col-xs-12">
+                    <a href="@Url.Action("DeleteFromBasket", "Products", new { id = item.BasketItemID })" class="btn btn-primary col-xs-12">
+                        Remove
+                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                    </a>
+                </div>
+
+            </td>
+        </tr>
+    }
+
+    <tr>
+        <td colspan="3">
+            Total
+        </td>
+        <td colspan="1">
+            @ViewBag.AmountInBasket
+        </td>
+        <td colspan="1">
+            @ViewBag.QuantityInBasket
+        </td>
+
+    </tr>
+</table>

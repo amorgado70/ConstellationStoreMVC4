@@ -1,0 +1,57 @@
+@model IEnumerable<ConstellationStore.Models.Customer>
+
+@{
+    ViewBag.Title = "Our Customers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Our Customers</h2>
+
+<div class="container">
+    <div class="row margin-top-10">
+        <div class="col-md-7">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <div class="col-md-9 col-xs-8 margin-top-10">
+                    @Html.TextBox("SearchString", null, new { id = "SearchString", @class = "form-control", placeholder = "Search by customer name" })
+                </div>
+                <div class="col-md-1 col-xs-2 margin-top-10">
+                    <button type="submit" class="btn btn-primary glyphicon glyphicon-search" />
+                </div>
+                <div class="col-md-1 col-xs-2 margin-top-10">
+                    <a href="@Url.Action("Index", "Customers")" class="btn btn-primary glyphicon glyphicon-remove"></a>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row margin-top-10">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <img class="img-responsive img-circle img-center customer-heading" src="@Html.DisplayFor(modelItem => item.PictureUrl)" alt="">
+                    </div>
+                    <div class="panel-body customer-body">
+                        <div class="col-xs-12">
+                            <h3>@Html.DisplayFor(modelItem => item.CustomerName)</h3>
+                            <h4>Phone: @Html.DisplayFor(modelItem => item.HomePhone)</h4>
+                            <h4>Email: @Html.DisplayFor(model => item.EmailAddress)</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium veniam exercitationem expedita laborum at voluptate. Labore, voluptates totam at aut nemo deserunt rem magni pariatur quos perspiciatis atque eveniet unde.</p>
+                        </div>
+                        <div class="col-xs-12">
+                            <a href="@Url.Action("Details", "Customers", new { id = item.CustomerId })" class="btn btn-primary col-md-4 col-md-push-8 col-xs-12 margin-top-10">
+                                Details &nbsp;
+                                <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

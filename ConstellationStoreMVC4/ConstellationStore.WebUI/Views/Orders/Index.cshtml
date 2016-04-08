@@ -1,0 +1,84 @@
+﻿@model IEnumerable<ConstellationStore.Models.ViewModel.OrderViewModel>
+
+@{
+    ViewBag.Title = "Our Orders";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Our Orders</h2>
+
+<div class="container">
+    <div class="row margin-top-10">
+        <div class="col-md-3">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <div class="col-md-6 col-xs-8 margin-top-10">
+                    @Html.TextBox("SearchString1", null, new { id = "SearchString1", @class = "form-control", placeholder = "Order ID" })
+                </div>
+                <div class="col-md-3 col-xs-2 margin-top-10">
+                    <button type="submit" class="btn btn-primary glyphicon glyphicon-search" />
+                </div>
+                <div class="col-md-3 col-xs-2 margin-top-10">
+                    <a href="@Url.Action("Index", "Orders")" class="btn btn-primary glyphicon glyphicon-remove"></a>
+                </div>
+            }
+        </div>
+        <div class="col-md-4">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <div class="col-md-8 col-xs-7 margin-top-10">
+                    @Html.TextBox("SearchString2", null, new { id = "SearchString2", @class = "form-control", placeholder = "Search by customer name" })
+                </div>
+                <div class="col-md-2 col-xs-2 margin-top-10">
+                    <button type="submit" class="btn btn-primary glyphicon glyphicon-search" />
+                </div>
+                <div class="col-md-2 col-xs-2 margin-top-10">
+                    <a href="@Url.Action("Index", "Orders")" class="btn btn-primary glyphicon glyphicon-remove"></a>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row margin-top-10">
+        <div class="col-md-2 col-sm-12">
+            <div class="btn btn-primary col-xs-12">
+                @Html.ActionLink("Order Id", "Index", new { sortOrder = ViewBag.OrderIdSortParm })
+                <span class="glyphicon glyphicon-sort" aria-hidden="true"></span>
+            </div>
+        </div>
+        <div class="col-md-2 col-sm-12">
+            <div class="btn btn-primary col-xs-12">
+                @Html.ActionLink("Order Date", "Index", new { sortOrder = ViewBag.OrderDateSortParm })
+                <span class="glyphicon glyphicon-sort" aria-hidden="true"></span>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-12">
+            <div class="btn btn-primary col-xs-12">
+                @Html.ActionLink("Customer Name", "Index", new { sortOrder = ViewBag.CustomerNameSortParm })
+                <span class="glyphicon glyphicon-sort" aria-hidden="true"></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    @foreach (var item in Model)
+    {
+        <hr />
+        <div class="row">
+            <div class="col-md-2 col-xs-6">@item.Order.OrderId</div>
+            <div class="col-md-2 col-xs-6">@item.Order.OrderDate</div>
+            <div class="col-md-3 col-xs-12">@item.Customer.CustomerName</div>
+            <div class="col-md-2 col-xs-12">
+                <a href="@Url.Action("Details", "Orders", new { id = item.Order.OrderId })" class="btn btn-primary col-xs-12">
+                    Details &nbsp;
+                    <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+                </a>
+            </div>
+        </div>
+    }
+</div>

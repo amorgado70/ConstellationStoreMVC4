@@ -1,0 +1,67 @@
+﻿@model ConstellationStore.Models.BasketItem
+
+@{
+    ViewBag.Title = "RemoveFromBasket";
+}
+
+<h2>Are you sure you want to remove this from basket?</h2>
+
+<div>
+    <h4>BasketItem</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Product.ImageUrl)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Product.ImageUrl)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BasketID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BasketID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Product.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayNameFor(model => model.Product.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Quantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Quantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Product.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Product.Price)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" />
+            <a href="@Url.Action("BasketSummary", "Products")" class="btn btn-primary">
+                Back to List &nbsp;
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            </a>
+        </div>
+    }
+</div>
