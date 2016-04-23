@@ -7,3 +7,7 @@ C:\Users\amorgado\Documents\GitHub\ConstellationStoreMVC4\ConstellationStoreMVC4
 C:\Users\amorgado\Documents\GitHub\ConstellationStoreMVC4\ConstellationStoreMVC4\ConstellationStore.Contracts\obj\Debug\ConstellationStore.Contracts.dll
 C:\Users\amorgado\Documents\GitHub\ConstellationStoreMVC4\ConstellationStoreMVC4\ConstellationStore.Contracts\obj\Debug\ConstellationStore.Contracts.pdb
 C:\Users\amorgado\Documents\GitHub\ConstellationStoreMVC4\ConstellationStoreMVC4\ConstellationStore.Contracts\obj\Debug\ConstellationStore.Contracts.csprojResolveAssemblyReference.cache
+D:\Temp\ConstellationStoreMVC4\ConstellationMVC4\ConstellationStore.Contracts\bin\Debug\ConstellationStore.Contracts.dll
+D:\Temp\ConstellationStoreMVC4\ConstellationMVC4\ConstellationStore.Contracts\bin\Debug\ConstellationStore.Contracts.pdb
+D:\Temp\ConstellationStoreMVC4\ConstellationMVC4\ConstellationStore.Contracts\obj\Debug\ConstellationStore.Contracts.dll
+D:\Temp\ConstellationStoreMVC4\ConstellationMVC4\ConstellationStore.Contracts\obj\Debug\ConstellationStore.Contracts.pdb
