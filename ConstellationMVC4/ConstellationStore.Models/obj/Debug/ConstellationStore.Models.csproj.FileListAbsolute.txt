@@ -20,3 +20,11 @@ C:\Users\amorgado\Documents\GitHub\ConstellationStoreMVC4\ConstellationMVC4\Cons
 C:\Users\amorgado\Documents\GitHub\ConstellationStoreMVC4\ConstellationMVC4\ConstellationStore.Models\obj\Debug\ConstellationStore.Models.csprojResolveAssemblyReference.cache
 C:\Users\amorgado\Documents\GitHub\ConstellationStoreMVC4\ConstellationMVC4\ConstellationStore.Models\obj\Debug\ConstellationStore.Models.dll
 C:\Users\amorgado\Documents\GitHub\ConstellationStoreMVC4\ConstellationMVC4\ConstellationStore.Models\obj\Debug\ConstellationStore.Models.pdb
+D:\Temp\ConstellationStoreMVC4\ConstellationMVC4\ConstellationStore.Models\bin\Debug\ConstellationStore.Models.dll.config
+D:\Temp\ConstellationStoreMVC4\ConstellationMVC4\ConstellationStore.Models\bin\Debug\ConstellationStore.Models.dll
+D:\Temp\ConstellationStoreMVC4\ConstellationMVC4\ConstellationStore.Models\bin\Debug\ConstellationStore.Models.pdb
+D:\Temp\ConstellationStoreMVC4\ConstellationMVC4\ConstellationStore.Models\bin\Debug\EntityFramework.dll
+D:\Temp\ConstellationStoreMVC4\ConstellationMVC4\ConstellationStore.Models\bin\Debug\EntityFramework.xml
+D:\Temp\ConstellationStoreMVC4\ConstellationMVC4\ConstellationStore.Models\obj\Debug\ConstellationStore.Models.csprojResolveAssemblyReference.cache
+D:\Temp\ConstellationStoreMVC4\ConstellationMVC4\ConstellationStore.Models\obj\Debug\ConstellationStore.Models.dll
+D:\Temp\ConstellationStoreMVC4\ConstellationMVC4\ConstellationStore.Models\obj\Debug\ConstellationStore.Models.pdb

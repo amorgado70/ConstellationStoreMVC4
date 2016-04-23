@@ -40,3 +40,16 @@ C:\Users\amorgado\Documents\GitHub\ConstellationStoreMVC4\ConstellationMVC4\Cons
 C:\Users\amorgado\Documents\GitHub\ConstellationStoreMVC4\ConstellationMVC4\ConstellationStore.DAL\obj\Debug\ConstellationStore.DAL.csprojResolveAssemblyReference.cache
 C:\Users\amorgado\Documents\GitHub\ConstellationStoreMVC4\ConstellationMVC4\ConstellationStore.DAL\obj\Debug\ConstellationStore.DAL.dll
 C:\Users\amorgado\Documents\GitHub\ConstellationStoreMVC4\ConstellationMVC4\ConstellationStore.DAL\obj\Debug\ConstellationStore.DAL.pdb
+D:\Temp\ConstellationStoreMVC4\ConstellationMVC4\ConstellationStore.DAL\bin\Debug\ConstellationStore.DAL.dll.config
+D:\Temp\ConstellationStoreMVC4\ConstellationMVC4\ConstellationStore.DAL\bin\Debug\ConstellationStore.DAL.dll
+D:\Temp\ConstellationStoreMVC4\ConstellationMVC4\ConstellationStore.DAL\bin\Debug\ConstellationStore.DAL.pdb
+D:\Temp\ConstellationStoreMVC4\ConstellationMVC4\ConstellationStore.DAL\bin\Debug\ConstellationStore.Contracts.dll
+D:\Temp\ConstellationStoreMVC4\ConstellationMVC4\ConstellationStore.DAL\bin\Debug\ConstellationStore.Models.dll
+D:\Temp\ConstellationStoreMVC4\ConstellationMVC4\ConstellationStore.DAL\bin\Debug\EntityFramework.dll
+D:\Temp\ConstellationStoreMVC4\ConstellationMVC4\ConstellationStore.DAL\bin\Debug\System.Linq.Dynamic.dll
+D:\Temp\ConstellationStoreMVC4\ConstellationMVC4\ConstellationStore.DAL\bin\Debug\ConstellationStore.Contracts.pdb
+D:\Temp\ConstellationStoreMVC4\ConstellationMVC4\ConstellationStore.DAL\bin\Debug\ConstellationStore.Models.pdb
+D:\Temp\ConstellationStoreMVC4\ConstellationMVC4\ConstellationStore.DAL\bin\Debug\EntityFramework.xml
+D:\Temp\ConstellationStoreMVC4\ConstellationMVC4\ConstellationStore.DAL\obj\Debug\ConstellationStore.DAL.csprojResolveAssemblyReference.cache
+D:\Temp\ConstellationStoreMVC4\ConstellationMVC4\ConstellationStore.DAL\obj\Debug\ConstellationStore.DAL.dll
+D:\Temp\ConstellationStoreMVC4\ConstellationMVC4\ConstellationStore.DAL\obj\Debug\ConstellationStore.DAL.pdb

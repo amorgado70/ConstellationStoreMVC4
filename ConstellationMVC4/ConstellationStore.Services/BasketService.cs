@@ -1,4 +1,4 @@
-﻿using ConstellationStore.Contracts.Repositories;
+using ConstellationStore.Contracts.Repositories;
 using ConstellationStore.Models;
 using System;
 using System.Collections.Generic;
@@ -59,13 +59,15 @@ namespace ConstellationStore.Services
                     ProductID = productId,
                     Quantity = quantity
                 };
-                basket.BasketItems.Add(item);
+                basketitems.Insert(item);
+                basketitems.Commit();
             }
             else
             {
                 item.Quantity = item.Quantity + quantity;
+                basketitems.Update(item);
+                basketitems.Commit();
             }
-            baskets.Commit();
             return success;
         }
 

@@ -244,6 +244,9 @@
     <Content Include="Content\Wite.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Images\2_nasaspacescapes_0006_7.jpg" />
+    <Content Include="Images\3_nasaspacescapes_0013_14.jpg" />
+    <Content Include="Images\4_nasaspacescapes_0012_13.jpg" />
     <Content Include="Images\background.jpg" />
     <Content Include="Images\IPMEventMap.png" />
     <Content Include="Scripts\bootstrap.js" />
